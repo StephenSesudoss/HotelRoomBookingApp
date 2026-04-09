@@ -39,8 +39,28 @@ Feature: Create Booking API
 | Michael                     | Li                             | 2026-06-03 | 2026-06-07 | false       | michael@test.com        | 09876543211            | 400    | last name length should be minimum 3   |
 | ChristopherAlexanderJonathan| White                          | 2026-07-04 | 2026-07-08 | true        | chris@test.com          | 09876543212            | 400    | first name length should not exceed 30 |
 | Emma                        | RobertsonWilliamsJohnsonSmith  | 2026-08-05 | 2026-08-09 | false       | emma@test.com           | 09876543213            | 400    | last name length should not exceed 30  |
-| David                       | Miller                         | 2026-09-06 | 2026-09-10 | true        |                         | 09876543214            | 400    | email should not be blank              |
-| Sarah                       | Wilson                         | 2026-08-07 | 2026-08-11 | false       | sarahwilson.com         | 09876543215            | 400    | email format is invalid                |
+| David                       | Miller                         | 2026-09-06 | 2026-09-10 | true        |                         | 09876543214            | 400    | must not be empty                      |
+| Sarah                       | Wilson                         | 2026-08-07 | 2026-08-11 | false       | sarahwilson.com         | 09876543215            | 400    | must be a well-formed email address    |
 | Daniel                      | Moore                          | 2026-09-08 | 2026-09-12 | true        | daniel@test.com         |                        | 400    | phone should not be blank              |
 | Olivia                      | Taylor                         | 2026-10-09 | 2026-10-13 | false       | olivia@test.com         | 1234567890             | 400    | phone length should be minimum 11      |
 | James                       | Anderson                       | 2026-11-10 | 2026-11-14 | true        | james@test.com          | 1234567890123456789012 | 400    | phone length should not exceed 21      |
+
+  @createInvalidBookingRoom @errorValidation
+  Scenario Outline: Create booking with invalid room numbers
+    When user creates booking for rooms "<rooms>"
+    Then response status code should be 400
+    And error message as "must be greater than or equal to 1"
+    Examples:
+| rooms |
+| XYZ   |
+| -1001 |
+| 000   |
+| 1010  |
+| 9999  |
+| -50   |
+| ABC   |
+| 12A   |
+| 0     |
+| 4500  |
+| ROOM  |
+| -9999 |
