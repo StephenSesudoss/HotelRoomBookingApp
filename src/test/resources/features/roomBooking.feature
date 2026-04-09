@@ -47,11 +47,11 @@ Feature: Create Booking API
 
   @createInvalidBookingRoom @errorValidation
   Scenario Outline: Create booking with invalid room numbers
-    When user creates booking for rooms "<rooms>"
+    When user creates booking for room "<room>"
     Then response status code should be 400
     And error message as "must be greater than or equal to 1"
     Examples:
-| rooms |
+| room |
 | XYZ   |
 | -1001 |
 | 000   |
