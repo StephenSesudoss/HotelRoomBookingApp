@@ -9,3 +9,17 @@ Background: User create an auth token
     Then the system should authenticate the user
     And the user should receive a valid session
     And session should be active until the auth token expires
+
+@roomInformation @regression
+Scenario: Guest views details of an available hotel room
+    Given the hotel offers rooms for booking
+    When the guest requests details for room number "<room>"
+    Then the system should provide the room information for room number "<room>"
+    And the room should have name and description
+    And the room should display its price per night
+    And the room should list the features available to the guest
+    Examples:
+    | <room> |
+    |    1   |
+    |    2   |
+    |    3   |
