@@ -23,6 +23,8 @@ Feature: UserAuthentication API
       | username | password   | 
       | admin    | password12 |
       | admin1   | password   |
+      | admin    |            |
+      |          | password   | 
 
  # PERFORMANCE TEST ON LOGIN RESPONSE TIME
   @login @performance
