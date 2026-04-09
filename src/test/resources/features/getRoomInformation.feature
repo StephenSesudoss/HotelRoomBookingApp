@@ -10,7 +10,7 @@ Background: User create an auth token
     And the user should receive a valid session
     And session should be active until the auth token expires
 
-@roomInformation @regression
+@roomInformation @availableRoom @regression
 Scenario: Guest views details of an available hotel room
     Given the hotel offers rooms for booking
     When the guest requests details for room number "<room>"
@@ -23,3 +23,9 @@ Scenario: Guest views details of an available hotel room
     |    1   |
     |    2   |
     |    3   |
+
+@negativeFlow    @UnavailableRoom
+Sceanrio: Guests try to view details of unavailable room
+Given the hotel offers rooms for booking
+When the guest requests details for a room number "<room>"
+Then the system should inform the guest that the room could not be found
