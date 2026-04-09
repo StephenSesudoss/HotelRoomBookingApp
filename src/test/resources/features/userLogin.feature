@@ -23,3 +23,10 @@ Feature: UserAuthentication API
       | username | password   | 
       | admin    | password12 |
       | admin1   | password   |
+
+ # PERFORMANCE TEST ON LOGIN RESPONSE TIME
+  @login @performance
+  Scenario: Validate login response time
+  When user logged in with valid username and password
+  Then response time should be less than 2000 ms
+  
