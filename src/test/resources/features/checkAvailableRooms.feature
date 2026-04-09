@@ -11,5 +11,14 @@ Feature: Create CheckAvailability API
     And the user should receive a valid session
     And session should be active until the auth token expires
 
+@checkAvailability @regression
+  Scenario Outline: Check Room availability with valid future dates
+    When User checks availability of rooms with "<check In>" "<check Out>" dates
+    Then Response Status as 200
+    And Response should provide list of available rooms to match with the dates
+    Examples:
+    | check In   | check Out  |
+    | 01-05-2026 | 04-05-2026 |
+    | 15-06-2026 | 19-06-2026 |
 
 
