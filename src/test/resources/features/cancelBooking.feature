@@ -15,7 +15,8 @@ Feature: Cancel Booking API
     Then response status code should be 200
     And booking id should be generated
     When user cancels booking by using booking id
-    Then system shouldn't retrieve the booking id
+    Then system should successfully cancel the booking details associated with the booking id 
+    And the booking id shouldn't be available in the system
     
     Examples:
       | firstname | lastname  | email                      | phone       |
