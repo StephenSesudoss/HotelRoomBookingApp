@@ -4,11 +4,12 @@ Feature: UserAuthentication API
     And request content type is "application/json"
 
   # VALID LOGIN CREDENTIALS
- @validLogin @regression
+  @validLogin @regression
   Scenario Outline: Login successfully
     When user logged in with valid "<username>" and "<password>"
     Then response status code should be 200
     And auth token should be generated
+    
     Examples:
       | username | password |
       | admin    | password |
@@ -19,6 +20,7 @@ Feature: UserAuthentication API
     When user logged in with invalid "<username>" and "<password>"
     Then response status code should be 401
     And error message should contain "Invalid credentials"
+    
     Examples:
       | username | password   | 
       | admin    | password12 |
@@ -26,9 +28,9 @@ Feature: UserAuthentication API
       | admin    |            |
       |          | password   | 
 
- # PERFORMANCE TEST ON LOGIN RESPONSE TIME
+  # PERFORMANCE TEST ON LOGIN RESPONSE TIME
   @login @performance
   Scenario: Validate login response time
-  When user logged in with valid username and password
-  Then response time should be less than 2000 ms
+    When user logged in with valid username and password
+    Then response time should be less than 2000 ms
   
