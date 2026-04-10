@@ -55,9 +55,9 @@ Feature: Cancel Booking API
       | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
       | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
 
-  # VERIFY BY CANCELLING SAME BOOKING AGAIN
-  @cancelBookingStatusAgain
-  Scenario: Cancel same booking again
+  # VERIFY BY CANCELLING SAME BOOKING TWICE
+  @cancelBookingStatusTwice
+  Scenario: Cancel same booking twice
     Given user creates booking with valid data
     And retrieve the booking by booking id
     When user cancel booking 
