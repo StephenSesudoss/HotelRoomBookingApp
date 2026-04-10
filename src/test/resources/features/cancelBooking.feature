@@ -9,7 +9,7 @@ Feature: Cancel Booking API
 
   # CANCEL BOOKING
   @positiveFlow  @cancelValidBooking @regression
-  Scenario: Cancel booking successfully
+  Scenario Outline: Cancel booking successfully
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
@@ -25,7 +25,7 @@ Feature: Cancel Booking API
     
   # CANCEL UNAVAILABLE BOOKING AND ERROR MESSAGE
   @negativeFlow  @cancelUnavailableBooking
-  Scenario: Cancel unavailable booking
+  Scenario Outline: Cancel unavailable booking
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
@@ -41,7 +41,7 @@ Feature: Cancel Booking API
 
   # CANCEL BOOKING BY UNAUTHORISED USER
   @userAuthorisationError 
-  Scenario: Unauthorised user trying to cancel booking
+  Scenario Outline: Unauthorised user trying to cancel booking
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
