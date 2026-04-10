@@ -1,4 +1,4 @@
-Feature: View all the hotel room details 
+Feature: View all the hotel room information 
   As a Hotel booking Application
   I have to provide clear and accurate room details
 
@@ -26,7 +26,7 @@ Feature: View all the hotel room details
       |  3   |
 
   @negativeFlow    @UnavailableRoom
-  Sceanrio: Guests try to view details of unavailable room
+  Scenario: Guests try to view details of unavailable room
     Given the hotel offers rooms for booking
     When the guest requests details for a room number "<room>"
     Then the system should inform the guest that the room could not be found
