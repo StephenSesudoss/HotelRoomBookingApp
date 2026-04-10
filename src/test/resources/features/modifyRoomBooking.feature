@@ -1,4 +1,4 @@
-Feature: Modify Booking API
+Feature: Modify Room Booking API
   As a authorized user of Booking app
   I want to edit an existing booking
   So that I can update guest and stay details
@@ -13,7 +13,7 @@ Feature: Modify Booking API
 
   # SCENARIOS FOR MODIFY VALID BOOKING AND ROOM
   @modifyBookingValid @regression 
-  Scenario Outline: Modify booking successfully
+  Scenario: Modify booking successfully
     Given user is authenticated
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
@@ -28,7 +28,7 @@ Feature: Modify Booking API
 
   # SCENARIOS FOR MODIFY VALID BOOKING WITH INVALID DATA
   @modifyBookingInValid @regression 
-  Scenario Outline: Modify booking with invalid details 
+  Scenario: Modify booking with invalid details 
     Given user is authenticated
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
@@ -45,7 +45,7 @@ Feature: Modify Booking API
 
   # MODIFY WITHOUT AUTHENTICATION
   @modifyBookingAuthError
-  Scenario Outline: Modify Booking without authentication
+  Scenario: Modify Booking without authentication
     Given user creates booking with valid data
     And retrieve the booking by booking id
     When user modify booking without authentication
