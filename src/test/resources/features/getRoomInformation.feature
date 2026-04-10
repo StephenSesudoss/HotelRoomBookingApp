@@ -20,10 +20,10 @@ Feature: View all the hotel room details
     And the room should list the features available to the guest
     
     Examples:
-      | <room> |
-      |    1   |
-      |    2   |
-      |    3   |
+      | room |
+      |  1   |
+      |  2   |
+      |  3   |
 
   @negativeFlow    @UnavailableRoom
   Sceanrio: Guests try to view details of unavailable room
@@ -32,6 +32,6 @@ Feature: View all the hotel room details
     Then the system should inform the guest that the room could not be found
     
     Examples:
-      | <room> |
+      |  room  |
       | 100001 |
       |   -2   |
