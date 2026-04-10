@@ -18,8 +18,8 @@ Feature: Create CheckAvailability API
     And Response should provide list of available rooms to match with the dates
     
     Examples:
-    | check In   | check Out  |
-    | 2026-05-20 | 2026-05-26 |
-    | 2026-05-02 | 2026-05-06 |
+      | check In   | check Out  |
+      | 2026-05-20 | 2026-05-26 |
+      | 2026-05-02 | 2026-05-06 |
 
 
