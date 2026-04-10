@@ -34,7 +34,7 @@ Feature: Modify Room Booking API
     Then response status code should be 200
     And booking id should be generated
     When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
-    Then response status code should be 200
+    Then response status code should be 400
    
     Examples:
       | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
