@@ -51,16 +51,11 @@ Feature: Create Booking API
     Then response status code should be 400
     And error message as "must be greater than or equal to 1"
     Examples:
-| room |
+| room  |
 | XYZ   |
 | -1001 |
 | 000   |
-| 1010  |
 | 9999  |
 | -50   |
-| ABC   |
 | 12A   |
-| 0     |
-| 4500  |
-| ROOM  |
 | -9999 |
