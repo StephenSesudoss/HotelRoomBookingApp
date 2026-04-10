@@ -54,3 +54,14 @@ Feature: Cancel Booking API
       | firstname | lastname  | email                 | phone       |
       | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
       | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
+
+  # VERIFY BY CANCELLING SAME BOOKING AGAIN
+  @cancelBookingStatusAgain
+  Scenario: Cancel same booking again
+    Given user creates booking with valid data
+    And retrieve the booking by booking id
+    When user cancel booking 
+    Then system should cancelled the booking id
+    When user cancel same booking id again
+    Then response status code should be 404
+    And should show error message as "not found"
