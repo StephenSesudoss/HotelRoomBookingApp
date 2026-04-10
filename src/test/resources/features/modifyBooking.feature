@@ -28,8 +28,8 @@ Feature: Modify Booking API
 
   # MODIFY WITHOUT AUTHENTICATION
   @modifyBookingAuthError
-  Scenario Outline: Modify Booking operations without authentication
+  Scenario Outline: Modify Booking without authentication
     Given user creates booking with valid data
-    And retrieve the booking by bookingID
+    And retrieve the booking by booking id
     When user modify booking without authentication
     Then the user should see an error message "Authentication error"
