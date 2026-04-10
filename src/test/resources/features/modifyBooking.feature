@@ -11,4 +11,16 @@ Feature: Modify Booking API
     And the user should receive a valid session
     And session should be active until the auth token expires
 
-    
+  # SCENARIOS FOR MODIFY VALID BOOKING AND ROOM
+  @modifyBookingValid @regression 
+  Scenario Outline: Modify booking successfully
+    Given user is authenticated
+    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    Then response status code should be 200
+    And booking id should be generated
+    When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
+    Then response status code should be 200
+    Examples:
+      | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
+      | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
+      | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | Ally           | 09223456780 | jason.ally@gmail.com |
