@@ -20,6 +20,7 @@ Feature: Modify Booking API
     And booking id should be generated
     When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
     Then response status code should be 200
+   
     Examples:
       | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
       | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
