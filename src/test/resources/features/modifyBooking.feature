@@ -25,3 +25,11 @@ Feature: Modify Booking API
       | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
       | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
       | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | Ally           | 09223456780 | jason.ally@gmail.com |
+
+  # MODIFY WITHOUT AUTHENTICATION
+  @modifyBookingAuthError
+  Scenario Outline: Modify Booking operations without authentication
+    Given user creates booking with valid data
+    And retrieve the booking by bookingID
+    When user modify booking without authentication
+    Then the user should see an error message "Authentication error"
