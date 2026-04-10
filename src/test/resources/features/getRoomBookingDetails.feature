@@ -22,4 +22,9 @@ Feature: Get Room Booking details
       |  2   |
       |  3   |
 
-    
+  @negativeFlow @accessDenied
+  Scenario: Unauthorized user tries to retrieve booking details
+    Given the user is not authenticated
+    When the user asks the room booking summary for room 1
+    Then the system should deny access
+    And the user should see an error message "Authentication error"  
