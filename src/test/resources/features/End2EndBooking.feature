@@ -11,9 +11,9 @@ Feature: End to End Booking Flow
     And the user should receive a valid session
     And session should be active until the auth token expires
 
-  # COMPLETE BOOKING END TO END FLOW
+  # HOTEL ROOM BOOKING END TO END FLOW
   @fullLifecycle @regression 
-  Scenario Outline: Create, modify and cancel room 
+  Scenario Outline: Create, modify and cancel hotel room 
     Given user got the valid authorized application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
