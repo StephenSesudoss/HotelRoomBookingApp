@@ -13,7 +13,7 @@ Feature: Modify Room Booking API
 
   # SCENARIOS FOR MODIFY VALID BOOKING AND ROOM
   @modifyBookingValid @regression 
-  Scenario: Modify booking successfully
+  Scenario Outline: Modify booking successfully
     Given user is authenticated
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
@@ -28,7 +28,7 @@ Feature: Modify Room Booking API
 
   # SCENARIOS FOR MODIFY VALID BOOKING WITH INVALID DATA
   @modifyBookingInValid @regression 
-  Scenario: Modify booking with invalid details 
+  Scenario Outline: Modify booking with invalid details 
     Given user is authenticated
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
