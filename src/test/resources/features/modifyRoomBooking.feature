@@ -26,6 +26,23 @@ Feature: Modify Booking API
       | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
       | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | Ally           | 09223456780 | jason.ally@gmail.com |
 
+  # SCENARIOS FOR MODIFY VALID BOOKING WITH INVALID DATA
+  @modifyBookingInValid @regression 
+  Scenario Outline: Modify booking with invalid details 
+    Given user is authenticated
+    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    Then response status code should be 200
+    And booking id should be generated
+    When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
+    Then response status code should be 200
+   
+    Examples:
+      | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
+      | Olive     | May        | olivemay@gmail.com         | 09898980000 | 8907650         | Turner         | 09901234568 | r.turner@gmail.com   |
+      | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | %^&*           | 09223456780 | jason.ally@gmail.com |
+      | Liam      | Walker     | liam.walker@test.com       | 09345678902 | Noah            | Lean           | phonenumber | noah.l@test.com      |
+      | Lucas     | Nelson     | lucas.nelson@test.com      | 09445678902 | Logan           | M              | 09445670000 | loganm               | 
+
   # MODIFY WITHOUT AUTHENTICATION
   @modifyBookingAuthError
   Scenario Outline: Modify Booking without authentication
