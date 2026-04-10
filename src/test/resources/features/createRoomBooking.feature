@@ -1,4 +1,4 @@
-Feature: Create Booking API
+Feature: Create Room Booking API
   As a Booking app user
   I want to create room bookings
   So that rooms can be reserved
