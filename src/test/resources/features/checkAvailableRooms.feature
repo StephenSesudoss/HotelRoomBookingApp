@@ -24,7 +24,7 @@ Feature: Create CheckAvailability API
 
 
   @checkInaftercheckOut 
-  Scenario: create a booking when user give checkout date as earlier than check in date
+  Scenario Outline: create a booking when user give checkout date as earlier than check in date
     Given user got the valid authorised application session
     When User checks availability of rooms with "<check In>" "<check Out>" dates
     And user submits the booking 
