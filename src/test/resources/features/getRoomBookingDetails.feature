@@ -11,7 +11,7 @@ Feature: Get Room Booking details
     And session should be active until the auth token expires
 
   @getRoomBookingDetails
-  Scenario: Get the room booking details
+  Scenario Outline: Get the room booking details
     Given the user check the room booking details
     When the user asks the room booking details for room "<room>"
     Then the room booking details response should be successful
