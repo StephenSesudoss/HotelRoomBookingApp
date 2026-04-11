@@ -41,4 +41,5 @@ The tests are designed using Gherkin syntax and aligned with real-world applicat
 * Booking cancellation and idempotency checks
 
 🔄 End-to-End Flow
-Availability → Create → Retrieve → Modify → Cancel
+
+Room Availability → Create Booking→ Retrieve Booking → Modify Booking → Cancel Booking
