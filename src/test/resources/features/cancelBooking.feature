@@ -8,7 +8,7 @@ Feature: Cancel Booking API
     And session should be active until the auth token expires
 
   # CANCEL BOOKING
-  @positiveFlow  @cancelValidBooking @regression
+  @positive  @cancelValidBooking @regression
   Scenario Outline: Cancel booking successfully
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
@@ -24,7 +24,7 @@ Feature: Cancel Booking API
       | Bruno     | Dzousa    | brunodzousa@hotmail.com | 07834567090 |  
     
   # CANCEL UNAVAILABLE BOOKING AND ERROR MESSAGE
-  @negativeFlow  @cancelUnavailableBooking
+  @negative  @cancelUnavailableBooking
   Scenario Outline: Cancel unavailable booking
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
@@ -40,7 +40,7 @@ Feature: Cancel Booking API
       | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
 
   # CANCEL BOOKING BY UNAUTHORISED USER
-  @userAuthorisationError 
+  @negative @userAuthorisationError 
   Scenario Outline: Unauthorised user trying to cancel booking
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
@@ -56,7 +56,7 @@ Feature: Cancel Booking API
       | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
 
   # VERIFY BY CANCELLING SAME BOOKING TWICE
-  @cancelBookingStatusTwice
+  @negative @cancelBookingStatusTwice
   Scenario: Cancel same booking twice
     Given user creates booking with valid data
     And retrieve the booking by booking id
