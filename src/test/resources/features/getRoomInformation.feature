@@ -10,7 +10,7 @@ Feature: View all the hotel room information
     And the user should receive a valid session
     And session should be active until the auth token expires
 
-  @positiveFlow @roomInformation @availableRoom @regression
+  @positive @roomInformation @availableRoom @regression
   Scenario Outline: Guest views details of an available hotel room
     Given the hotel offers rooms for booking
     When the guest requests details for room number "<room>"
@@ -25,7 +25,7 @@ Feature: View all the hotel room information
       |  2   |
       |  3   |
 
-  @negativeFlow    @UnavailableRoom
+  @negative    @UnavailableRoom
   Scenario Outline: Guests try to view details of unavailable room
     Given the hotel offers rooms for booking
     When the guest requests details for a room number "<room>"
