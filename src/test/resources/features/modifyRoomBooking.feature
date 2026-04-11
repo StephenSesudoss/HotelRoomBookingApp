@@ -12,7 +12,7 @@ Feature: Modify Room Booking API
     And session should be active until the auth token expires
 
   # SCENARIOS FOR MODIFY VALID BOOKING AND ROOM
-  @positive @modifyBookingValid @regression 
+  @positive @modifyBookingValid @regression @critical
   Scenario Outline: Modify booking successfully
     Given user is authenticated
     When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
@@ -44,7 +44,7 @@ Feature: Modify Room Booking API
       | 2026-08-20 | 2026-08-26 | Lucas     | Nelson     | lucas.nelson@test.com      | 09445678902 | Logan           | M              | 09445670000 | loganm               | 
 
   # MODIFY WITHOUT AUTHENTICATION
-  @modifyBookingAuthError
+  @modifyBookingAuthError @access
   Scenario: Modify Booking without authentication
     Given user creates booking with valid data
     And retrieve the booking by booking id
