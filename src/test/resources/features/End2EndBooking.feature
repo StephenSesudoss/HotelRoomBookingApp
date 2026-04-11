@@ -12,7 +12,7 @@ Feature: End to End Booking Flow
     And session should be active until the auth token expires
 
   # HOTEL ROOM BOOKING END TO END FLOW
-  @fullLifecycle @regression 
+  @positive @fullLifecycle @regression 
   Scenario Outline: Create, modify and cancel hotel room 
     Given user got the valid authorised application session
     When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
