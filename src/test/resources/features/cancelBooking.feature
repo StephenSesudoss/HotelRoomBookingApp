@@ -11,7 +11,7 @@ Feature: Cancel Booking API
   @positive  @cancelValidBooking @regression
   Scenario Outline: Cancel booking successfully
     Given user got the valid authorised application session
-    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
     And booking id should be generated
     When user cancels booking by using booking id
@@ -19,15 +19,15 @@ Feature: Cancel Booking API
     And the booking id shouldn't be available in the system
     
     Examples:
-      | firstname | lastname  | email                   | phone       |
-      | Olive     | May       | olivemay@gmail.com      | 09898980000 |
-      | Bruno     | Dzousa    | brunodzousa@hotmail.com | 07834567090 |  
+      | check In   | check Out  | firstname | lastname  | email                   | phone       |
+      | 2026-05-20 | 2026-05-26 | Olive     | May       | olivemay@gmail.com      | 09898980000 |
+      | 2026-05-02 | 2026-05-06 | Bruno     | Dzousa    | brunodzousa@hotmail.com | 07834567090 |  
     
   # CANCEL UNAVAILABLE BOOKING AND ERROR MESSAGE
   @negative  @cancelUnavailableBooking
   Scenario Outline: Cancel unavailable booking
     Given user got the valid authorised application session
-    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
     And booking id should be generated
     When user cancels unavailable booking by using different booking id
@@ -35,15 +35,15 @@ Feature: Cancel Booking API
     And error message should contain "Not Found"
     
     Examples:
-      | firstname | lastname  | email                 | phone       |
-      | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
-      | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
+      | check In   | check Out  | firstname | lastname  | email                 | phone       |
+      | 2026-05-20 | 2026-05-26 | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
+      | 2026-05-02 | 2026-05-06 | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
 
   # CANCEL BOOKING BY UNAUTHORISED USER
   @negative @userAuthorisationError 
   Scenario Outline: Unauthorised user trying to cancel booking
     Given user got the valid authorised application session
-    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
     And booking id should be generated
     When the user attempts to cancel the booking without authentication
@@ -51,9 +51,9 @@ Feature: Cancel Booking API
     And the user should see an error message "Authentication error"
 
     Examples:
-      | firstname | lastname  | email                 | phone       |
-      | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
-      | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
+      | check In   | check Out  | firstname | lastname  | email                 | phone       |
+      | 2026-05-20 | 2026-05-26 | Aaron     | Brooks    | aaron.brooks@test.com | 09111111111 |
+      | 2026-05-02 | 2026-05-06 | Bella     | Cooper    | bella.cooper@test.com | 09222222222 |
 
   # VERIFY BY CANCELLING SAME BOOKING TWICE
   @negative @cancelBookingStatusTwice
