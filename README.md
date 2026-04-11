@@ -44,7 +44,8 @@ The tests are designed using Gherkin syntax and aligned with real-world applicat
 
 Room Availability → Create Booking→ Retrieve Booking → Modify Booking → Cancel Booking
 
-👥 Role-Based Testing Strategy
+**👥 Role-Based Testing Strategy**
+
 The application enforces role-based access control to ensure that operations are performed only by authorized users.
 
 <img width="552" height="290" alt="image" src="https://github.com/user-attachments/assets/690f7643-4a62-4c7a-b538-1db9292d2b3e" />
