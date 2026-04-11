@@ -15,33 +15,33 @@ Feature: Modify Room Booking API
   @positive @modifyBookingValid @regression 
   Scenario Outline: Modify booking successfully
     Given user is authenticated
-    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
     And booking id should be generated
     When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
     Then response status code should be 200
    
     Examples:
-      | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
-      | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
-      | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | Ally           | 09223456780 | jason.ally@gmail.com |
+      | check In   | check Out  | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
+      | 2026-05-20 | 2026-05-26 | Olive     | May        | olivemay@gmail.com         | 09898980000 | Raellyn         | Turner         | 09901234568 | r.turner@gmail.com   |
+      | 2026-06-20 | 2026-06-24 | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | Ally           | 09223456780 | jason.ally@gmail.com |
 
   # SCENARIOS FOR MODIFY VALID BOOKING WITH INVALID DATA
   @negative @modifyBookingInValid @regression 
   Scenario Outline: Modify booking with invalid details 
     Given user is authenticated
-    When user creates booking with firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
+    When user creates booking with check in "<check In>" check Out "<check Out>" firstname "<firstname>" lastname "<lastname>" email "<email>" and phone "<phone>"
     Then response status code should be 200
     And booking id should be generated
     When user modifies "<modifyfirstname>" "<mofifylastname>" "<modifyphone>" "<modifyemail>" by using generated booking id
     Then response status code should be 400
    
     Examples:
-      | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
-      | Olive     | May        | olivemay@gmail.com         | 09898980000 | 8907650         | Turner         | 09901234568 | r.turner@gmail.com   |
-      | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | %^&*           | 09223456780 | jason.ally@gmail.com |
-      | Liam      | Walker     | liam.walker@test.com       | 09345678902 | Noah            | Lean           | phonenumber | noah.l@test.com      |
-      | Lucas     | Nelson     | lucas.nelson@test.com      | 09445678902 | Logan           | M              | 09445670000 | loganm               | 
+      | check In   | check Out  | firstname | lastname   | email                      | phone       | modifyfirstname | modifylastname | modifyphone | modifyemail          |
+      | 2026-05-20 | 2026-05-26 | Olive     | May        | olivemay@gmail.com         | 09898980000 | 8907650         | Turner         | 09901234568 | r.turner@gmail.com   |
+      | 2026-06-20 | 2026-06-26 | Bruno     | Dzousa     | brunodzousa@hotmail.com    | 07834567090 | Jason           | %^&*           | 09223456780 | jason.ally@gmail.com |
+      | 2026-07-10 | 2026-07-14 | Liam      | Walker     | liam.walker@test.com       | 09345678902 | Noah            | Lean           | phonenumber | noah.l@test.com      |
+      | 2026-08-20 | 2026-08-26 | Lucas     | Nelson     | lucas.nelson@test.com      | 09445678902 | Logan           | M              | 09445670000 | loganm               | 
 
   # MODIFY WITHOUT AUTHENTICATION
   @modifyBookingAuthError
