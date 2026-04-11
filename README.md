@@ -3,6 +3,7 @@
 📌 Overview
 This repository contains a comprehensive Behavior-Driven Development (BDD) test suite for a Hotel Room Booking Application.
 The suite validates complete booking workflows including:
+
 * User authentication
 * Room search & discovery
 * Availability checks
@@ -15,30 +16,29 @@ The suite validates complete booking workflows including:
 The tests are designed using Gherkin syntax and aligned with real-world application behavior, covering positive, negative, edge, and security scenarios.
 
 **🎯 Objectives**
-* Validate application functionality using BDD approach
-* Ensure end-to-end booking lifecycle correctness
-* Verify data consistency across operations
-* Test boundary conditions and edge cases
-* Validate role-based access control (User vs Admin)
+* Validate core application functionality using a Behavior-Driven Development (BDD) approach
+* Ensure accuracy and reliability of the complete end-to-end booking lifecycle
+* Maintain data integrity and consistency across all booking operations
+* Identify and validate boundary conditions, edge cases, and negative scenarios
+* Enforce and verify role-based access control between User and Admin roles
 
 **🧪 Test Coverage**
 
 🔐 Authentication
-* User login validation
-* Admin login validation
-* Invalid credential handling
-* Session/token-based authorization checks
+* Validate user and admin login
+* Handle invalid credentials
+* Verify session and token-based authorization
 
 🛏️ Room Module
-* Room search and discovery
-* Room details validation
-* Availability checks with different date combinations
+* Search and discover rooms
+* Validate room details
+* Check availability across date combinations
 
 📖 Booking Module
-* Booking creation with valid and invalid inputs
-* Booking retrieval using booking ID
-* Booking modification with validation rules
-* Booking cancellation and idempotency checks
+* Create bookings with valid and invalid inputs
+* Retrieve bookings by ID
+* Modify bookings with validation rules
+* Cancel bookings with idempotency checks
 
 🔄 End-to-End Flow
 
