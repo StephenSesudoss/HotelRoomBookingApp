@@ -46,15 +46,6 @@ Room Availability → Create Booking→ Retrieve Booking → Modify Booking → 
 
 👥 Role-Based Testing Strategy
 The application enforces role-based access control to ensure that operations are performed only by authorized users.
-Operation	Allowed Role	Description
-
-Operation	Allowed Role	Description
-Room discovery	User	Users can search and explore available rooms
-Availability check	User	Users can check room availability for dates
-Booking creation	User	Users can create new bookings
-Booking retrieval	User	Users can view their booking details
-Booking update	Admin	Only admins can modify existing bookings
-Booking cancellation	Admin	Only admins can cancel bookings
 
 <img width="552" height="290" alt="image" src="https://github.com/user-attachments/assets/690f7643-4a62-4c7a-b538-1db9292d2b3e" />
 
