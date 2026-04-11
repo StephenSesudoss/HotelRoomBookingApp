@@ -12,7 +12,7 @@ Feature: Create Room Booking API
     And session should be active until the auth token expires
 
   # SCENARIOS WITH VALID DETAILS
-  @positiveFlow @createValidBooking @regression 
+  @positive @createValidBooking @regression 
   Scenario Outline: Create booking with valid data
     When User creates booking with "<firstname>" "<lastname>" "<check In>" "<check Out>" "<depositpaid>" "<email>" "<phone>"
     Then Response status should be 200
@@ -25,7 +25,7 @@ Feature: Create Room Booking API
       | Daniel    | Carter    | 2026-05-02 | 2026-05-06 | false       | Dcarter@hotmail.com | 08978906050  |
 
   # SCENARIOS WITH INVALID DETAILS
-  @negativeFlow @createInvalidBooking @ErrorValidation
+  @negative @createInvalidBooking @ErrorValidation
   Scenario Outline: Create booking with invalid data
     When User creates booking with "<firstname>" "<lastname>" "<check In>" "<check Out>" "<depositpaid>" "<email>" "<phone>"
     And the user gets "<error>" error message
@@ -46,7 +46,7 @@ Feature: Create Room Booking API
       | James                       | Anderson                       | 2026-11-10 | 2026-11-14 | true        | james@test.com          | 1234567890123456789012 | 400    | phone length should not exceed 21      |
 
   # CHECK BOOKING WITH UNUSUAL INPUT VALUES
-  @adhocUnusualDataInput
+  @negative @adhocUnusualDataInput
   Scenario Outline: Create booking with unusual input values
     When user creates booking with "<inputType>" "<data>" values
     Then response status code should be <status>
