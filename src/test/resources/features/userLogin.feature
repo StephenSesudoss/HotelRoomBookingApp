@@ -15,7 +15,7 @@ Feature: UserAuthentication API
       | admin    | password |
 
   # INVALID LOGIN CREDENTIALS
-  @negative @invalidLogin
+  @negative @invalidLogin @access
   Scenario Outline: Login with invalid credentials
     When user logged in with invalid "<username>" and "<password>"
     Then response status code should be 401
