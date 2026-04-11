@@ -4,7 +4,7 @@ Feature: UserAuthentication API
     And request content type is "application/json"
 
   # VALID LOGIN CREDENTIALS
-  @validLogin @regression
+  @positive @validLogin @regression
   Scenario Outline: Login successfully
     When user logged in with valid "<username>" and "<password>"
     Then response status code should be 200
@@ -15,7 +15,7 @@ Feature: UserAuthentication API
       | admin    | password |
 
   # INVALID LOGIN CREDENTIALS
-  @invalidLogin
+  @negative @invalidLogin
   Scenario Outline: Login with invalid credentials
     When user logged in with invalid "<username>" and "<password>"
     Then response status code should be 401
