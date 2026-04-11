@@ -50,3 +50,6 @@ The application enforces role-based access control to ensure that operations are
 
 <img width="552" height="290" alt="image" src="https://github.com/user-attachments/assets/690f7643-4a62-4c7a-b538-1db9292d2b3e" />
 
+**🏷️ Tags Used**
+
+<img width="433" height="127" alt="image" src="https://github.com/user-attachments/assets/f56ee7df-d2cc-408f-a711-2f84f21bd3cf" />
