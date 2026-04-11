@@ -1,4 +1,4 @@
-🏠 Hotel Room Booking Application
+🏠 **Hotel Room Booking Application**
 
 📌 Project Overview
 A web-based application designed to manage hotel room bookings efficiently
